@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>login validation</title>
+        <script type="text/javascript">
+            function login_validation(){
+                var uid=document.form1.userid;
+                var passid=document.form1.passid;
+                if(userid_validation(uid,5,12)){
+                    if(passid_validation(passid,5,12)){
+
+                    }
+                }
+                return false;
+            }
+            function userid_validation(uid,mx,my){
+                var uid_len=uid.value.length;
+                if(uid_len==0||uid_len>=my||uid_len<=mx){
+                    alert("tuser id should not be empty/length between"+mx+"to"+my);
+                    uid.focus();
+                    return false;
+                }
+                return true;
+            }
+            function passid_validation(passid,mx,my){
+                var passid_len=passid.value.length;
+                if(passid_len==0||passid_len>=my||passid_len<=mx){
+                    alert("pass id should not be empty/length between"+mx+"to"+my);
+                    passid.focus();
+                    return false;
+
+                }
+                return true;
+            }
+        </script>
+    </head>
+    <body  style="color:green;background-color:black;font-size:60px;font-style:italic;text-align:center;">
+        <h1>RGMCET LOGIN FORM</h1>
+        <center>
+        <form name="form1" onsubmit="return login_validation()">
+            <table border="0">
+                <tr>
+                    <th>USERNAME:</th>
+                    <td><input type="text" name="userid"/></td>
+                </tr>
+                <tr>
+                    <th>PASSWORD:</th>
+                    <td><input type="password" name="passid"/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit"/></td>
+                    <td><input type="reset"/></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+        </body>
+</html>
