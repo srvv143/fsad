@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<document>
+  <customer>
+      <name>
+         <lastname>aaa</lastname>
+         <firstname>bbb</firstname>
+       </name>
+       <date>3 june 2023</date>
+       <orders> 
+           <item>
+              <product>Fruits</product>
+              <number>150</number>
+              <price>200</price>
+           </item>
+           <item>
+              <product>Chocalates</product>
+              <number>200</number>
+               <price>100</price>
+           </item>
+        </orders>
+    </customer>
+</document>
+           

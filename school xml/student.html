@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Accessing xml data</title>
+    <script type="text/javascript">
+     function getStudentData(){
+            var xmldoc;
+            xmldoc = new ActiveXObject("Microsoft.XMLDOM");
+            xmldoc.load("school.xml");
+            nodeschool=xmldoc.documentElement;
+            nodeclass = nodeschool.firstchild;
+            nodestudents=nodeclass.lastchild;
+            nodestudent=nodestudents.lastchild;
+            nodefirstname=nodestudent.firstchild;
+            nodelastname=nodefirstname.nextsibling;
+            OutputMessage="Name:"+nodefirstname.firstchild.nodevalue+" "+nodelastname.firstchild.nodevalue;
+            message.innerHTML=OutputMessage;
+      }
+      </script>
+ </head>
+  <body>
+       <center>
+          <h1>Accessing xml data</h1>
+          <div id="message"></div>
+          <input type="button" value="getData" onClick="getStudentData()">
+        </center>
+  </body>
+</html>
