@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>ValidationForm</title>
+	<script type="text/javascript">
+		function validateForm(){
+			var uid = document.form1.uid;
+			var upd = document.form1.pwd;
+			var uname = document.form1.uname;
+			var uadd = document.form1.uadd;
+			var uzip = document.form1.zip;
+			var umail = document.form1.umail;
+			var ucon = document.form1.country;
+			var ugen = document.form1.mf;
+                  var a = 5;
+                  var b = 12;
+			if( userId_valid(uid,a,b))
+{
+				if( userPsd_valid(upd,a,b)){
+					if( allLetter(uname)){
+						if(allAlphaNum(uadd)){
+							if(allDigit(uzip)){
+								if(Email_valid(umail)){
+									if(ch_country(ucon)){
+										if( user_Gender(ugen)){
+
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			return false;
+		}
+		function userId_valid(uid,min,max){
+			var len = uid.value.length;
+			if(len == 0||len<min||len>=max){
+				alert("UserID should not be empty / length is in between " + min + " and " + max);
+				uid.focus();
+				return false;
+			}
+			return true
+		}
+		function userPsd_valid(upd, min, max){
+			var len = upd.value.length;
+			if(len == 0||len<min||len>=max){
+				alert("Password should not be empty / length is in between " + min + " and " + max);
+				upd.focus();
+				return false;
+			}
+			return true
+		}
+		function allLetter(uname){
+			var alpha = /^[A-Za-z]+$/;
+			if(uname.value.match(alpha)){
+				return true;
+			}
+			else{
+				alert("User Name Should only contain Alphabets");
+				uname.focus();
+				return false;
+			}
+		}
+		function allAlphaNum(uadd){
+			var alphaNum = /^[A-Za-z0-9]+$/;
+			if(uadd.value.match(alphaNum)){
+				return true;
+			}
+			else{
+				alert("Address Should only contain Alphabets & Numbers");
+				uadd.focus();
+				return false;
+			}
+		}
+		function allDigit(uzip){
+			var Num = /^[0-9]+$/;
+			if(uzip.value.match(Num)){
+				return true;
+			}
+			else{
+				alert("Zip Should only contain Numbers");
+				uzip.focus();
+				return false;
+			}
+		}
+		function Email_valid(umail){
+			var mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			if(umail.value.match(mail)){
+				return true;
+			}
+			else{
+				alert("Not a valid mail");
+				umail.focus();
+				return false;
+			}
+		}
+		function ch_country(ucon){
+			if(ucon.value == Default){
+				alert("choose a country");
+				ucon.focus();
+				return false;
+			}
+			else{
+				return true;
+			}
+		}
+		function user_Gender(ugen){
+			var x=0;
+			if(ugen.checked){x++;}
+			if(x==0){
+				alert("Select MAle/ Female");
+				ugen.focus();
+				return false;
+			}
+			else{
+				alert("Success");
+				return true;
+			}
+		}
+	</script>
+</head>
+<body>
+	
+	<h1> Registrartion Form </h1>
+	<form name="form1" onsubmit="return validateForm()">
+		<table >
+			<tr>
+				<th> UserID : </th>
+				<td> <input type="text" name="uid" value="" size="12"/></td>
+			</tr>
+			<tr>
+				<th> Password : </th>
+				<td> <input type="password" name="pwd" value="" size="12"/></td>
+			</tr>
+			<tr>
+				<th> Name : </th>
+				<td> <input type="text" name="uname" value="" size="50"/></td>
+			</tr>
+			<tr>
+				<th> Address : </th>
+				<td> <input type="text" name="uadd" value="" size="50"/></td>
+			</tr>
+			<tr>
+				<th> Zip Code: </th>
+				<td> <input type="text" name="zip" value=""/></td>
+			</tr>
+			<tr>
+				<th> Email : </th>
+				<td> <input type="email" name="umail" value="" size="50"/></td>
+			</tr>
+			<tr>
+				<th> Select ur country : </th>
+				<td> 
+					<select name = "country">
+						<option selected="" value="Default"> (Please select a country)</option>
+						<option> America </option>
+						<option> Canada </option>
+						<option> Australia </option>
+						<option> India </option>
+						<option> China </option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th> Gender  : </th>
+				<td> <input type="radio" name="mf" value="Male"/>MALE</td>
+				<td> <input type="radio" name="mf" value="Female"/>FEMALE</td>
+			</tr>
+			<tr>
+				<th> Languages Preffered : </th>
+				<td> <input type="checkbox" name="en" value="en" checked/>English</td>
+				<td> <input type="checkbox" name="nen" value="nen"/>Non English</td>
+			</tr>
+			<tr>
+				<th> Write about yourself(optional) : </th>
+				<td> <textarea name="desc" rows="4" cols="40"></textarea></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><input type="submit" value="SUBMIT" name="sub"></td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+	</form>
+	
+</body>
+</html>
